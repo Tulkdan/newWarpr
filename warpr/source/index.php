@@ -14,10 +14,15 @@ if($opcao == 'logout'){
 
 if (isset($_POST['btnLogin'])) {
     $user = $_POST['username'];
-    $senha = $_POST['password'];
-    if ($senha == "asd" && $user == "asd") {
-        $_SESSION['logado'] = true;
-    }
+    $pass = $_POST['password'];
+
+    require_once '../bd.php';
+    $con = getDB();
+    $strSql = "SELECT * FROM warprCon WHERE user='$user' OR email='$user' AND password='$pass'";
+        $rs = $con->query($strSql);
+        if($rs->setFetchMode(PDO::FETCH_ASSOC)){
+            $_SESSION['logado'] = true;
+        }
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -36,7 +41,7 @@ else{
 <div id="wrapper">
 	<div id="menu">
 		<p class="welcome">Welcome, <b><?php echo $user; ?></b></p>
-                <p class="logout"><a id="exit"><span>Sair</span></a></p>
+                <p class="logout"><a id="exit" href="?opcao=logout"><span>Sair</span></a></p>
 		<div style="clear:both"></div>
 	</div>	
 	<div id="chatbox"><?php

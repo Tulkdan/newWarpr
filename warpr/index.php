@@ -16,37 +16,6 @@ if (isset($_POST['btnLogin'])) {
         $_SESSION['logado'] = true;
     }
 }
-
-$form_action_func = $_POST['contra'];
-
-if (function_exists($form_action_func)) {
-    cadastraContratante();
-}
-
-$form_action_func = $_POST['func'];
-
-if (function_exists($form_action_func)) {
-    cadastraFunc();
-}
-
-function cadastraContratante(){
-    $user=$_POST['user1'];
-    $email=$_POST['email1'];
-    $pass=$_POST['password1'];
-    $sql = "INSERT INTO WARPR-CONTRATA (user,email,password) VALUES ('user','email','pass')";
-    mysql_query($sql);
-    echo "<script>alert('Cadastro efetuado com sucesso')</script>";
-}
-
-function cadastraFunc(){
-    $user1=$_POST['user2'];
-    $email1=$_POST['email2'];
-    $pass1=$_POST['password2'];
-    $work=$_POST['work'];
-    $sql = "INSERT INTO WARPR-FUNC (user,email,password,trabalho) VALUES ('user','email','pass','work')";
-    mysql_query($sql);
-    echo "<script>alert('Cadastro efetuado com sucesso')</script>";
-}
 ?>
 
 <!doctype html>
@@ -107,7 +76,7 @@ function cadastraFunc(){
             <li>Cadastre-se</li>
     <br><br>
             <!--forms-->
-        <form method="post" action="index.php?contra=cadastraContratante">
+        <form method="post" action="cadContra.php">
            <div id="input_white">
             <input type="text" name="user1" id="user" placeholder="Nome de usuário" maxlength="12" required="required" />
             <br>
@@ -144,7 +113,7 @@ function cadastraFunc(){
             <ol>
             <li>Cadastre-se</li>
     <br><br>
-        <form method="post" action="index.php?func=cadastraFunc">
+    <form method="post" action="cadFunc.php">
             <div id="input_white">
                 <input type="text" name="user2" id="user" placeholder="Nome de Usuário" maxlength="12" required="required" />
                 <br>

@@ -4,7 +4,8 @@ body {
 	font:12px arial;
 	color: #222;
 	text-align:center;
-	padding:35px; 
+	padding:35px;
+        background: url('geometry2.png') repeat top center fixed;
 }
  
 form, p, span {
@@ -38,6 +39,8 @@ a:after {
         color: black;
         -webkit-transition: all 300ms ease-out;
         transition: all 300ms ease-out;
+        cursor:pointer;
+       
     }
 
 a:hover:after {
@@ -69,8 +72,8 @@ a:hover:after {
 	margin-bottom:25px;
 	padding:10px;
 	background:#fff;
-	height:270px;
-	width:430px;
+	height:370px;
+	
 	border: 0px solid #000000;
 	overflow:auto; 
 }
@@ -104,4 +107,13 @@ a:hover:after {
     margin:0 0 2px 0; 
 }
  
- 
+#submitmsg{
+    color: white;
+    background-color: grey;
+    border: none;
+    font-size: 12px;
+    padding: 6px;
+    border-radius: 6px;
+    margin: 0px 5px 0px 5px;
+}
+
